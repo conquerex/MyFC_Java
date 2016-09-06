@@ -9,8 +9,8 @@ public class Ran {
         return result;
     }
     
-    public double getRandomByMath(){
-        double temp = Math.random();
-        return temp;
+    public int getRandomByMath(){
+        
+        return (int)(Math.ceil(Math.random()*45));
     }
 }

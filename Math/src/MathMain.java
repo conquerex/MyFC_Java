@@ -6,18 +6,21 @@ public class MathMain {
         
         Ran ran = new Ran();
         
+        MathMain main = new MathMain();
+        main.makeLotto();
+        
         // 뭐가 문제인가 
-        double temp = ran.getRandomByMath() * 100;
-        int num = (int) temp;
-        System.out.println("Lotto num : "+num);
-        while (num < 1 || num > 45) {
-            num = (int) ran.getRandomByMath() * 100;
-            System.out.println("Lotto num2 : "+num);
-            if(num > 0 && num <46){
-                System.out.println("Lotto temp : "+num);
-                num = 45;
-            }
-        }
+//        double temp = ran.getRandomByMath() * 100;
+//        int num = (int) temp;
+//        System.out.println("Lotto num : "+num);
+//        while (num < 1 || num > 45) {
+//            num = (int) ran.getRandomByMath() * 100;
+//            System.out.println("Lotto num2 : "+num);
+//            if(num > 0 && num <46){
+//                System.out.println("Lotto temp : "+num);
+//                num = 45;
+//            }
+//        }
         
     }
     
@@ -26,12 +29,12 @@ public class MathMain {
         int b = 0;
         
         // Ran 생성 
-        Ran main = new Ran();
+        Ran ran = new Ran();
         // MathMain main = new MathMain();
         
         // 배열에 값을 입력하기 위한 반복문
         for (int i = 0; i < 6; i++) {
-            a[i] = main.getRandomNumber();
+            a[i] = ran.getRandomByMath();
             
             // 아래 반복문에서 한 loop에 두번의 중복을 발견할 경우
             // 마지막에 중복 숫자가 다시 나타날 수 있다 (Fail)
