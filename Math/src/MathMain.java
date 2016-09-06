@@ -1,15 +1,33 @@
 import java.util.Random;
 
 public class MathMain {
-    // main 밖에서는 변수 선언만. 연산은 main 안에서
     
-    // 반환형 : 반환값 없을 경우
     public static void main(String[] args) {
         
+        Ran ran = new Ran();
+        
+        // 뭐가 문제인가 
+        double temp = ran.getRandomByMath() * 100;
+        int num = (int) temp;
+        System.out.println("Lotto num : "+num);
+        while (num < 1 || num > 45) {
+            num = (int) ran.getRandomByMath() * 100;
+            System.out.println("Lotto num2 : "+num);
+            if(num > 0 && num <46){
+                System.out.println("Lotto temp : "+num);
+                num = 45;
+            }
+        }
+        
+    }
+    
+    public void makeLotto(){
         int[] a = new int[6];
         int b = 0;
         
-        MathMain main = new MathMain();
+        // Ran 생성 
+        Ran main = new Ran();
+        // MathMain main = new MathMain();
         
         // 배열에 값을 입력하기 위한 반복문
         for (int i = 0; i < 6; i++) {
@@ -26,33 +44,9 @@ public class MathMain {
             }
         }
         
-        // Bonus
-        for (int i = 0; i < 1; i++) {
-            b = main.getRandomNumber();
-            for (int j = 0; j < 6; j++) {
-                if(b == a[j]) i--;
-            }
-        }
-        
-        
         // 배열의 값을 출력하기 위한 반복문
         for (int i = 0; i < 6; i++) {
             System.out.print(a[i] + " ");
-		}
-        System.out.println();
-        System.out.print(b + " ");
-        
+        }
     }
-    
-    // 반환값의 형태가 integer 일 경우
-    // static이 없을 시, new로 생성해야 함 
-    public int getRandomNumber(){
-        int result = 0;
-        Random random = new Random();
-        
-        result = random.nextInt(9) + 1;
-        
-        return result;
-    }
-    
 }
