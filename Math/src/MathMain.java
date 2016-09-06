@@ -7,7 +7,7 @@ public class MathMain {
         Ran ran = new Ran();
         
         MathMain main = new MathMain();
-        main.makeLotto();
+        main.testWhile();
         
         // 뭐가 문제인가 
 //        double temp = ran.getRandomByMath() * 100;
@@ -22,6 +22,14 @@ public class MathMain {
 //            }
 //        }
         
+    }
+    
+    public void testWhile(){
+        int i = 0;
+        do{
+            System.out.println(i++);
+        }
+        while( i < 5);
     }
     
     public void makeLotto(){
