@@ -1,20 +1,19 @@
 import java.util.Random;
 
 public class MathMain {
+    // main 밖에서는 변수 선언만. 연산은 main 안에서
+    
     // 반환형 : 반환값 없을 경우
     public static void main(String[] args) {
         
         int[] a = new int[6];
-        a[0] = 11;
-        a[1] = 12;
-        a[2] = 13;
-        a[3] = 14;
-        a[4] = 15;
-        a[5] = 16;
+        int b = 0;
+        
+        MathMain main = new MathMain();
         
         // 배열에 값을 입력하기 위한 반복문
         for (int i = 0; i < 6; i++) {
-            a[i] = MathMain.getRandomNumber();
+            a[i] = main.getRandomNumber();
             
             // 아래 반복문에서 한 loop에 두번의 중복을 발견할 경우
             // 마지막에 중복 숫자가 다시 나타날 수 있다 (Fail)
@@ -27,15 +26,27 @@ public class MathMain {
             }
         }
         
+        // Bonus
+        for (int i = 0; i < 1; i++) {
+            b = main.getRandomNumber();
+            for (int j = 0; j < 6; j++) {
+                if(b == a[j]) i--;
+            }
+        }
+        
+        
         // 배열의 값을 출력하기 위한 반복문
         for (int i = 0; i < 6; i++) {
             System.out.print(a[i] + " ");
 		}
+        System.out.println();
+        System.out.print(b + " ");
         
     }
     
-    // 반환값의 형태가 integer 일 경우 
-    public static int getRandomNumber(){
+    // 반환값의 형태가 integer 일 경우
+    // static이 없을 시, new로 생성해야 함 
+    public int getRandomNumber(){
         int result = 0;
         Random random = new Random();
         
