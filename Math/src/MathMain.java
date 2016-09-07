@@ -5,9 +5,15 @@ public class MathMain {
     public static void main(String[] args) {
         
         Ran ran = new Ran();
+        int f = 0;
         
         MathMain main = new MathMain();
-        main.testWhile();
+        // main.testWhile();
+        
+        // 피보나치 수열 구현
+        f = 10;
+        System.out.println(main.getFibonacci(f));
+        
         
         // 뭐가 문제인가 
 //        double temp = ran.getRandomByMath() * 100;
@@ -60,4 +66,22 @@ public class MathMain {
             System.out.print(a[i] + " ");
         }
     }
+    
+    public int getFibonacci(int n) {
+        
+        int[] a = new int[n];
+        a[0] = 0;
+        a[1] = 1;
+        System.out.println(a[0]);
+        // System.out.println(a.length);
+        for (int i = 1; i < a.length-1; i++) {
+            
+            System.out.println(i+"  >> " + a[i]);
+            a[i+1] = a[i] + a[i-1];
+        }
+        System.out.println(a[n-1]);
+        
+        return a[n-1];
+    }
+    
 }

@@ -18,9 +18,9 @@ public class AlgoMain {
         System.out.println("1부터 "+ temp +"까지의 합은 "+ result +"이다.");
         */
         
-        int maxnum = 8;
+        int maxnum = 100;
         int tarnum = 8;
-        System.out.println(numberCount(maxnum, tarnum));
+        System.out.println("총 갯수 : " + numberCount(maxnum, tarnum));
     }
     
     public int sum(int num) {
