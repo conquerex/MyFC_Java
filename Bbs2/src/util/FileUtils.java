@@ -1,10 +1,11 @@
-package com.jongkook.util;
+package util;
 
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 
@@ -59,5 +60,23 @@ public class FileUtils {
         SimpleDateFormat sdf = new SimpleDateFormat("YYYY-MM-dd HH:mm:ss");
         System.out.println("Mod : "+sdf.format(file.lastModified()));
         
+    }
+    
+    public static void createFile(String path, String fileName){
+        
+        File dir = new File(path);
+        if(!dir.exists()){
+            dir.mkdirs();
+        }
+        
+        File file = new File(path + File.separator + fileName);
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
     }
 }

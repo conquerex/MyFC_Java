@@ -1,13 +1,18 @@
 import java.util.ArrayList;
 
+import util.FileUtils;
+
 public class BbsList {
+    
+    private final String DB_PATH = "/Users/jongkook/workspace/Bbs2/test";
+    private final String DB_NAME = "bbs.txt";
     private ArrayList<Post> list = new ArrayList<>();
     private int count = 0;
     
     // CRUD
     
     public BbsList(){
-        // 로직 없
+        FileUtils.createFile(DB_PATH, DB_NAME); 
     }
     
     public void addPost(Post post){
