@@ -8,11 +8,17 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+
+import com.bbs.BbsList;
+import com.bbs.Post;
+
 
 public class FileUtils {
     
-    public static String read(String fileName){
-        StringBuilder result = new StringBuilder();
+    public static ArrayList<Post> read(String fileName){
+        // StringBuilder result = new StringBuilder();
+        ArrayList<Post> result = new ArrayList<>();
         
         try {
             FileInputStream fis = new FileInputStream(fileName);
@@ -22,19 +28,35 @@ public class FileUtils {
             
             // int chr = 0;
             
-            String buffer = ""; 
-            while(true){
-                buffer = br.readLine();
-                if(buffer == null) break;
-                result.append(buffer);
-                result.append("\r");
-            }
+            String buffer = "";
             
+            // StringBuilder를 이용할 경우 
+//            while(true){
+//                buffer = br.readLine();
+//                if(buffer == null) break;
+//                result.append(buffer);
+//                result.append("\r\n");
+//            }
+            int count = 0;
+            while((buffer = br.readLine()) != null){
+                String temp[] = buffer.split(BbsList.DB_SEPERATOR);
+                Post post = new Post();
+                post.no = Integer.parseInt(temp[0]);
+                count = post.no;
+                post.title = temp[1];
+                post.writer = temp[2];
+                post.date = temp[3];
+                post.contents = temp[4];
+                result.add(post);
+                
+            }
+            BbsList.count = count;
             fis.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return result.toString();
+        // return result.toString();
+        return result;
     }
     
     public static void write(String fileName, String contents){

@@ -1,7 +1,10 @@
+package com.bbs;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
+
+import util.FileUtils;
 
 public class BbsMain {
     public static void main(String[] args) {
@@ -29,13 +32,16 @@ public class BbsMain {
                 setPost(post, scan);
                 
                 list.addPost(post);
+                
                 System.out.println("입력 완료 (반말임)");
                 
             } else if(orderValue.startsWith("/print")){
                 // "/print"로 시작하는 내용을 파악 
                 if(orderValue.equals("/print")) {
                     // 목록 보여주기
-                    list.showList();
+                    // list.showList();
+                    list.load();
+                    
                 } else {
                     String temp[] = orderValue.split(" ");
                     
@@ -88,6 +94,7 @@ public class BbsMain {
             }
         }
         System.out.println("----- 프로그램 종료 -----");
+        list.save();
     }
     
     public static void setPost(Post post, Scanner scan){

@@ -1,10 +1,11 @@
+package com.bbs;
 
 public class Post {
-    int no;
-    String contents;
-    String title;
-    String writer;
-    String date;
+    public int no;
+    public String contents;
+    public String title;
+    public String writer;
+    public String date;
 
     void print(){
         System.out.println(no+"\t| "+title+"\t| "+writer);
